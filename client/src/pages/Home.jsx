@@ -28,7 +28,7 @@ const Home = () => {
                 </div>
             </Link>
 
-            <div className='text-center text-4xl font-semibold mt-7'>
+            <div className='text-center text-4xl font-semibold mt-7 block'>
                 {`Start a coding Journey with `}  
                 {/* <HighlightText text={text}/> */}
                 <TypeAnimation 
@@ -56,8 +56,8 @@ const Home = () => {
             </CTAButton>
             </div>
 
-            <div className='mx-3 my-12 w-9/12 h-8/12'>
-                <video muted loop autoPlay >
+            <div className='mx-3 my-12 w-11/12 '>
+                <video muted loop autoPlay className='shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] rounded-md'>
                     <source src={Banner} type="Video/mp4"/>
                 </video>
             </div>

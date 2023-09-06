@@ -7,7 +7,7 @@ const CourseCard = ({cardData,currentCard,setCurrentCard}) => {
     <div
     className={`w-[360px] lg:w-[30%] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ${
       currentCard === cardData?.heading
-        ? "bg-white shadow-[12px_12px_0_0] shadow-coral-pink-400 scale-95"
+        ? "bg-white  shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] shadow-coral-pink-400 scale-95"
         : "bg-richblack-800 hover:scale-95 transition-all duration-200"
     }  text-richblack-25 h-[300px] box-border cursor-pointer rounded-md`}
     onClick={() => setCurrentCard(cardData?.heading)}

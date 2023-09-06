@@ -12,7 +12,7 @@ const Footer = () => {
         <img src={logo} alt='' className='w-[150px]'/>
         <div className='flex flex-row items-center gap-2 text-white'>
           <HiMail style={{fontSize:"22px"}}/>
-          <p>pwlms@gmail.com</p>
+          <p>pwlms6@gmail.com</p>
         </div>
 
         <div className='flex flex-row items-center gap-2 text-white'>

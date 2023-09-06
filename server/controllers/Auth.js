@@ -1,6 +1,6 @@
 const User = require("../models/User");
 const Profile=require("../models/Profile");
-const OTP = require("../models/OTP");
+const Otp = require("../models/OTP");
 const otpgenerator=require("otp-generator");
 const bcrypt=require("bcrypt");
 const mailSender=require("../utils/mailSender");
@@ -34,7 +34,7 @@ exports.sendOtp=async(req,res)=>{
     console.log("otp generated-->",otp);
 
     //check unique otp or not
-       let result= await OTP.findOne({otp:otp});
+       let result= await Otp.findOne({otp:otp});
 
        while(result){
             otp=otpgenerator.generate(6,{
@@ -42,10 +42,10 @@ exports.sendOtp=async(req,res)=>{
                 lowerCaseAlphabets:false,
                 specialChars:false,
             });
-            result= await OTP.findOne({otp:otp});
+            result= await Otp.findOne({otp:otp});
         }
         const otpPayload={email,otp};
-        const otpBody =await OTP.create(otpPayload);
+        const otpBody =await Otp.create(otpPayload);
 
         console.log("otpbody-->",otpBody);
         //return response successful
@@ -110,7 +110,7 @@ exports.signUp= async(req,res)=>{
        } 
 
     //find most recent otp stored for the user
-       const recentOtp = await OTP.find( {email} ).sort({ createdAt: -1 }).limit(1)
+       const recentOtp = await Otp.find( {email} ).sort({ createdAt: -1 }).limit(1)
        console.log("recent otp-->",recentOtp);
 
     //validate otp
