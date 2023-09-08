@@ -8,6 +8,8 @@ import ProfileDropDown from '../core/auth/ProfileDropDown';
 import {BsChevronDown} from "react-icons/bs";
 import { apiConnector } from '../../services/apiConnector';
 import { categories } from '../../services/api';
+import menuBarImg from '../../assets/burger-bar.png';
+import cancelImg from '../../assets/cancel.png';
 
 // const subLinks=[
 //     {
@@ -26,6 +28,9 @@ const Navbar = () => {
     const {user}=useSelector((state)=>state.profile);
     const {totalItems}=useSelector((state)=>state.cart);
     const [loading,setLoading]=useState(false);
+    const [toggle,setToggle]=useState(false);
+    const [active, setActive] = useState("Home");
+
 
     const location=useLocation();
 
@@ -53,7 +58,8 @@ const Navbar = () => {
 
 
   return (
-    <div className='flex h-14 items-center justify-center'>
+    <div className='relative'>
+        <div className='sm:flex hidden h-14 items-center justify-center bg-[#F0F0F0] '>
         <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
             <Link to="/">
                 <img src={logo} alt='' className='w-[160px] h-[60px]' loading='lazy'/>
@@ -157,7 +163,41 @@ const Navbar = () => {
             </div>
 
         </div>
+        </div>
+
+        {/* mobile responsive */}
+        <div className=" sm:hidden flex flex-row justify-between  items-center p-4">
+        <img src={logo} alt='' className='w-[160px] h-[60px]' loading='lazy'/>
+        <img
+          src={toggle ? cancelImg : menuBarImg}
+          alt="menu"
+          className="w-[28px] h-[28px] object-contain "
+          onClick={() => setToggle(!toggle)}
+        />
+
+        {/* Sidebar */}
+        <div
+          className={`${
+            !toggle ? "hidden" : "flex"
+          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+        >
+          <ul className="list-none flex justify-end items-start flex-1 flex-col bg-richblack-800">
+            {NavbarLinks.map((nav, index) => (
+              <li
+                key={index}
+                className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                  active === nav.title ? "text-coral-pink-600" : "text-White"
+                } ${index === NavbarLinks.length - 1 ? "mb-0" : "mb-4"}`}
+                onClick={() => setActive(nav.title)}
+              >
+                <a href={`#${nav.id}`}>{nav.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
+   
   )
 }
 

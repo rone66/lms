@@ -244,22 +244,16 @@ exports.login = async(req, res) => {
 //changePassword
 exports.changePassword=async(req,res)=>{
     try {
+        const userDetails = await User.findById(req.user.id)
         //data from req body
-        const {oldPassword,newPassword,confirmNewPassword}=req.body;
+        const {oldPassword,newPassword}=req.body;
         const userId=req.user.id;
 
-        //matching new and confirm password
-        if(newPassword!==confirmNewPassword){
-            return res.json({
-                success:false,
-                message:'new password and confirm password not matched'
-            })
-        }
-        const userDetail= User.findById(userId);
-
+        
+        //console.log("userDetail in changepassword-->",userDetails);
         //matching old password to database saved password
 
-        const isMatch= await bcrypt.compare(oldPassword,userDetail.password);
+        const isMatch= await bcrypt.compare(oldPassword,userDetails.password);
 
         if(!isMatch){
             return res.json({
@@ -269,9 +263,10 @@ exports.changePassword=async(req,res)=>{
         }
         //update pwd in db
 
-        const hashedPassword=bcrypt.hash(newPassword,10);
-        const updatedUserDetails= User.findByIdAndUpdate(userId,{password:hashedPassword},{new:true});
+        const hashedPassword=await bcrypt.hash(newPassword,10);
+        const updatedUserDetails=await User.findByIdAndUpdate(req.user.id ,{password:hashedPassword},{new:true});
 
+        console.log(updatedUserDetails);
         //send mail
         try {
             const emailResponse = await mailSender(

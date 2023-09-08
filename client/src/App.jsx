@@ -10,6 +10,12 @@ import Error from "./pages/Error";
 import UpdatePassword from "./pages/UpdatePassword";
 import VerifyEmail from "./pages/VerifyEmail";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
+import MyProfile from "./components/core/dashboard/MyProfile";
+import PrivateRoute from "./components/core/auth/PrivateRoute";
+import Dashboard from "./pages/Dashboard";
+import Settings from "./components/core/dashboard/Settings/index";
+import EnrolledCourses from "./components/core/dashboard/EnrolledCourses";
 
 
 
@@ -70,6 +76,32 @@ function App() {
           }
         />
 
+    <Route
+          path="contact"
+          element={
+            <OpenRoute>
+              <Contact/>
+            </OpenRoute>
+          }
+        />
+    
+    <Route
+          element={
+            <PrivateRoute>
+              <Dashboard/>
+            </PrivateRoute>
+          }
+    >
+    <Route path="dashboard/my-profile" element={<MyProfile/>}/>
+
+
+    <Route path="dashboard/settings" element={<Settings/>}/>
+
+    <Route path="dashboard/enrolled-courses" element={<EnrolledCourses/>}/>
+
+    </Route>
+
+    
 
 
     <Route
