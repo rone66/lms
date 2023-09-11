@@ -29,7 +29,7 @@ const EnrolledCourses = () => {
                 <div className='spinner'></div>
             </div>) :
              !enrolledcourses.length ? 
-             (<p className="grid h-[10vh] w-full place-content-center text-richblack-800">
+             (<p className="grid h-[10vh] w-full place-content-center font-semibold text-richblack-800">
              You have not enrolled in any course yet</p>):
              (
                 <div className="my-8 text-richblack-5">

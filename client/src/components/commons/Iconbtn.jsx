@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Iconbtn = ({text,onclick,children,disabled,outline = false,customClasses,type,}) => {
+const Iconbtn = ({text,onclick,children,disabled,outline = false,customClasses,type}) => {
   return (
     <button
         disabled={disabled}

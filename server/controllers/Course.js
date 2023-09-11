@@ -1,5 +1,5 @@
 const Course=require("../models/Course");
-const Category=require("../models/category");
+const Category=require("../models/Category");
 const User=require("../models/User");
 const Section = require("../models/Section")
 const SubSection = require("../models/SubSection")
@@ -88,9 +88,11 @@ exports.createCourse = async (req, res) => {
       instructor: instructorDetails._id,
       whatYouWillLearn: whatYouWillLearn,
       price,
+      tag,
       category: categoryDetails._id,
       thumbnail: thumbnailImage.secure_url,
       status: status,
+      instructions,
       
     })
 
@@ -225,6 +227,8 @@ exports.editCourse = async (req, res) => {
       const { courseId } = req.body
       const updates = req.body
       const course = await Course.findById(courseId)
+
+      console.log(course);
   
       if (!course) {
         return res.status(404).json({ error: "Course not found" })
