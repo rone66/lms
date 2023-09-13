@@ -79,7 +79,7 @@ export default function SubSectionModal({
       formData.append("video", currentValues.lectureVideo)
     }
     if (currentValues.lectureTime !== modalData.timeDuration) {
-      formData.append("video", currentValues.lectureVideo)
+      formData.append("timeDuration", currentValues.lectureTime)
     }
     setLoading(true)
     const result = await updateSubSection(formData, token)

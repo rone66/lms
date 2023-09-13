@@ -65,6 +65,7 @@ exports.categoryPageDetails= async (req,res)=>{
     try{
         //get category id
         const {categoryId}=req.body;
+        //console.log("Printing category id--->",categoryId);
 
         //get course for specifed category id
         const selectCategory=await Category.findById(categoryId).populate("courses").exec();

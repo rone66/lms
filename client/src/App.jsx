@@ -20,6 +20,9 @@ import Cart from "./components/core/dashboard/Cart/index";
 import { ACCOUNT_TYPE } from "./utils/constants";
 import { useSelector } from "react-redux";
 import AddCourse from "./components/core/dashboard/AddCourse/index"
+import MyCourses from "./components/core/dashboard/MyCourses";
+import EditCourse from "./components/core/dashboard/EditCourse";
+import Catalog from "./pages/Catalog";
 
 
 function App() {
@@ -31,6 +34,7 @@ function App() {
     <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>} />
+      <Route path="/catalog/:catalogName" element={<Catalog/>} />
 
       <Route
           path="signup"
@@ -74,22 +78,13 @@ function App() {
           }
         />
     <Route
-          path="about"
+          path="/about"
           element={
-            <OpenRoute>
-              <About/>
-            </OpenRoute>
+            <About />
           }
         />
 
-    <Route
-          path="contact"
-          element={
-            <OpenRoute>
-              <Contact/>
-            </OpenRoute>
-          }
-        />
+    <Route path="/contact" element={<Contact />} />
     
     <Route
           element={
@@ -118,7 +113,8 @@ function App() {
       user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
         <>
         <Route path="dashboard/add-course" element={<AddCourse/>}/>
-       
+        <Route path="dashboard/my-courses" element={<MyCourses/>}/>
+        <Route path="dashboard/edit-course/:courseId" element={<EditCourse/>}/>
         </>
       )
     }
