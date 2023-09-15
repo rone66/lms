@@ -131,7 +131,7 @@ const Navbar = () => {
                                 <AiOutlineShoppingCart fontSize="1.5rem"/>
                                 {
                                     totalItems > 0 && (
-                                        <span>
+                                        <span className="absolute bottom-3 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-richblack-600 text-center text-xs font-bold text-richblack-5">
                                             {totalItems}
                                         </span>
                                     )
@@ -166,7 +166,7 @@ const Navbar = () => {
         </div>
 
         {/* mobile responsive */}
-        <div className=" sm:hidden flex flex-row justify-between  items-center p-4">
+        <div className=" sticky sm:hidden flex flex-row justify-between items-center py-1 px-4 ">
         <img src={logo} alt='' className='w-[160px] h-[60px]' loading='lazy'/>
         <img
           src={toggle ? cancelImg : menuBarImg}

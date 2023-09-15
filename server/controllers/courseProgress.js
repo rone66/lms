@@ -11,6 +11,7 @@ exports.updateCourseProgress = async (req, res) => {
   try {
     // Check if the subsection is valid
     const subsection = await SubSection.findById(subsectionId)
+    console.log("subSection-->",subsection);
     if (!subsection) {
       return res.status(404).json({ error: "Invalid subsection" })
     }
@@ -20,7 +21,7 @@ exports.updateCourseProgress = async (req, res) => {
       courseID: courseId,
       userId: userId,
     })
-
+    console.log("courseProgress",courseProgress);
     if (!courseProgress) {
       // If course progress doesn't exist, create a new one
       return res.status(404).json({

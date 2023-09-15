@@ -11,6 +11,7 @@ import InstructorSection from '../components/core/homepage/InstructorSection';
 import ExploreMore from "../components/core/homepage/ExploreMore"
 import { TypeAnimation } from 'react-type-animation';
 import Footer from '../components/commons/Footer';
+import ReviewSlider from '../components/commons/ReviewSlider';
 
 
 const Home = () => {
@@ -176,6 +177,7 @@ const Home = () => {
         <div className='w-11/12 relative my-20 mx-auto max-w-maxContent flex-col items-center justify-between gap-8'>
                     <InstructorSection/>
                     <h2 className='text-center text-4xl font-semibold mt-10 '>Our Achievers Reviews</h2>
+                    <ReviewSlider />
         </div>
 
         {/* footer */}
