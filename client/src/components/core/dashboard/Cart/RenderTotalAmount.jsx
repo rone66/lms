@@ -13,6 +13,7 @@ const RenderTotalAmount = () => {
     const dispatch = useDispatch()
 
     const handleBuyCourse=()=>{
+        console.log("i'm clicked");
         const courses = cart.map((course)=>course._id);
         console.log("bought these courses",courses);
         buyCourse(token, courses, user, navigate, dispatch)
@@ -23,7 +24,7 @@ const RenderTotalAmount = () => {
         <p className="mb-6 text-3xl font-medium text-white">₹  {total}</p>
         <Iconbtn
             text="Buy Now"
-            onClick={handleBuyCourse()}
+            onclick={handleBuyCourse}
             customClasses={"w-full justify-center"}
         />
     </div>

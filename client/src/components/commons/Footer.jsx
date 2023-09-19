@@ -2,8 +2,10 @@ import React from 'react';
 import logo from '../../assets/PWSkills-white.png';
 import {HiMail} from "react-icons/hi";
 import {BsTelephoneFill,BsFacebook,BsInstagram,BsTelegram,BsYoutube,BsTwitter,BsLinkedin,BsDiscord} from "react-icons/bs"
-import isoLogo from '../../assets/svgviewer-png-output.png'
+import isoLogo from '../../assets/svgviewer-png-output.png';
+import {useNavigate} from 'react-router-dom';
 const Footer = () => {
+  const navigate=useNavigate();
   return (
     <div >
       <div className='bg-richblack-800 w-full  flex lg:flex-row items-center justify-evenly flex-col gap-11'>
@@ -44,12 +46,12 @@ const Footer = () => {
 
         <div className='flex flex-row items-center gap-12'>
           <div className='flex flex-col gap-10 text-white'>
-            <p className='cursor-pointer'>About Us</p>
+            <p className='cursor-pointer' onClick={()=>navigate("/about")}>About Us</p>
             <p className='cursor-pointer'>FAQ</p>
             <p className='cursor-pointer'>Privacy Policy</p>
           </div>
           <div className='flex flex-col gap-10 text-white'>
-            <p className='cursor-pointer'>Contact Us</p>
+            <p className='cursor-pointer' onClick={()=>navigate("/contact")}>Contact Us</p>
             <p className='cursor-pointer'>Job Assurance</p>
             <p className='cursor-pointer'>Terms And Conditions</p>
           </div>

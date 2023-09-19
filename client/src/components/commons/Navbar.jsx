@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, matchPath, useLocation } from 'react-router-dom';
+import { Link, matchPath, useLocation, useNavigate } from 'react-router-dom';
 import logo from "../../assets/PWSkills-logo.png";
 import { NavbarLinks } from "../../data/navbar-links"
 import { useSelector } from 'react-redux';
@@ -31,6 +31,7 @@ const Navbar = () => {
   const [loading, setLoading] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [active, setActive] = useState(false);
+  const navigate=useNavigate();
 
 
   const location = useLocation();
@@ -178,7 +179,7 @@ const Navbar = () => {
 
       {/* mobile responsive */}
       <div className=" sticky sm:hidden flex flex-row justify-between items-center py-1 px-4 z-[100]">
-        <img src={logo} alt='' className='w-[160px] h-[60px]' loading='lazy' />
+        <img src={logo} alt='' className='w-[160px] h-[60px]' loading='lazy' onClick={()=>navigate("/")} />
         <img
           src={toggle ? cancelImg : menuBarImg}
           alt="menu"
@@ -265,7 +266,7 @@ const Navbar = () => {
                   <AiOutlineShoppingCart fontSize="1.5rem" onClick={()=>setToggle(!toggle)}/>
                   {
                     totalItems > 0 && (
-                      <span className="absolute bottom-3 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-richblack-600 text-center text-xs font-bold text-richblack-5">
+                      <span className="absolute bottom-3 -right-1 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-richblack-600 text-center text-xs font-bold text-richblack-5">
                         {totalItems}
                       </span>
                     )
