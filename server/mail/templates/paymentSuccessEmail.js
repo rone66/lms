@@ -67,7 +67,7 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
       
       <body>
           <div class="container">
-              <a href="https://studynotion-edtech-project.vercel.app"><img class="logo" src="https://pwskills.com/blog/wp-content/uploads/2023/05/PWSkills-main-4-181x67.png"
+              <a href=""><img class="logo" src="https://res.cloudinary.com/dyfxcxiim/image/upload/v1695009965/pwLms/pw-with-white-back_fiwdh9.png"
                       alt="pwLms Logo"></a>
               <div class="message">Course Payment Confirmation</div>
               <div class="body">

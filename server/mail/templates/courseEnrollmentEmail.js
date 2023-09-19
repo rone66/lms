@@ -43,7 +43,7 @@ exports.courseEnrollmentEmail = (courseName, name) => {
             .cta {
                 display: inline-block;
                 padding: 10px 20px;
-                background-color: #FFD60A;
+                background-color: #E97862;
                 color: #000000;
                 text-decoration: none;
                 border-radius: 5px;
@@ -76,7 +76,7 @@ exports.courseEnrollmentEmail = (courseName, name) => {
                     are excited to have you as a participant!</p>
                 <p>Please log in to your learning dashboard to access the course materials and start your learning journey.
                 </p>
-                <a class="cta" href="https://studynotion-edtech-project.vercel.app/dashboard">Go to Dashboard</a>
+                <a class="cta" href="https://pwLms.vercel.app/dashboard">Go to Dashboard</a>
             </div>
             <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
                     href="mailto:info@pwLms.com">mailto:info@pwLms.com</a>. We are here to help!</div>

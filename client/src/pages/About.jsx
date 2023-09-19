@@ -11,6 +11,7 @@ import StatsComponent from "../components/core/aboutpage/StatsComponent"
 import HighlightText from "../components/core/homepage/HighlightText"
 // import ReviewSlider from "../components/common/ReviewSlider"
 import Footer from "../components/commons/Footer"
+import ReviewSlider from "../components/commons/ReviewSlider"
 
 const About = () => {
   return (
@@ -103,16 +104,18 @@ const About = () => {
       </section>
 
       <StatsComponent />
-      <section className="mx-auto mt-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white">
+      <section className="mx-auto mt-20 flex w-[9/12] max-w-maxContent flex-col justify-between gap-10 text-white">
         <LearningGrid />
         <ContactFormSection /> 
       </section>
 
-      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
+      <div className="w-11/12 relative my-20 mx-auto max-w-maxContent flex-col items-center justify-between gap-8">
         {/* Reviws from Other Learner */}
         <h1 className="text-center text-4xl font-semibold mt-8"> 
           Reviews from other learners
         </h1>
+        <ReviewSlider/>
+        
         
       </div>  
       

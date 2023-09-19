@@ -7,52 +7,54 @@ const Course = require("../models/Course");
 require("dotenv").config();
 
 
-exports.updateProfile=async(req,res)=>{
-    try {
-        //get data
-        const {dateOfBirth="",about="",contactNumber,gender}=req.body;
+exports.updateProfile = async (req, res) => {
+  try {
+    const {
+      firstName = "",
+      lastName = "",
+      dateOfBirth = "",
+      about = "",
+      contactNumber = "",
+      gender = "",
+    } = req.body
+    const id = req.user.id
 
-        //get userId
-        const id=req.user.id;
-       
+    // Find the profile by id
+    const userDetails = await User.findById(id)
+    const profile = await Profile.findById(userDetails.additionalDetails)
 
-        //validation
-        if(!id ||!contactNumber||!gender){
-            return res.status(400).json({
-                success:false,
-                message:"any of the field missing"
-            })
-        }
+    const user = await User.findByIdAndUpdate(id, {
+      firstName,
+      lastName,
+    })
+    await user.save()
 
-        //find profile
-        const userDetails=await User.findById(id);
-        const profileId=userDetails.additionalDetails;
-        const profileDetails=await Profile.findById(profileId);
-        //console.log(profileDetails);
+    // Update the profile fields
+    profile.dateOfBirth = dateOfBirth
+    profile.about = about
+    profile.contactNumber = contactNumber
+    profile.gender = gender
 
-        //update profile
+    // Save the updated profile
+    await profile.save()
 
-        profileDetails.dateOfBirth=dateOfBirth;
-        profileDetails.about=about;
-        profileDetails.contactNumber=contactNumber;
-        profileDetails.gender=gender;
+    // Find the updated user details
+    const updatedUserDetails = await User.findById(id)
+      .populate("additionalDetails")
+      .exec()
 
-        //console.log(dateOfBirth);
-
-        await profileDetails.save();
-        //return res
-        return res.status(200).json({
-            success:true,
-            message:'profile updated successfully',
-            profileDetails,
-        })
-    } catch(error) {
-      console.log(error);
-        return res.status(500).json({
-            success:false,
-            error:error.message,
-        })
-    }
+    return res.json({
+      success: true,
+      message: "Profile updated successfully",
+      updatedUserDetails,
+    })
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    })
+  }
 }
 
 
@@ -231,7 +233,7 @@ exports.instructorDashboard = async (req, res) => {
       const courseDetails = await Course.find({ instructor: req.user.id })
   
       const courseData = courseDetails.map((course) => {
-        const totalStudentsEnrolled = course.studentsEnroled.length
+        const totalStudentsEnrolled = course.studentsEnrolled.length
         const totalAmountGenerated = totalStudentsEnrolled * course.price
   
         // Create a new object with the additional fields
@@ -252,5 +254,5 @@ exports.instructorDashboard = async (req, res) => {
       console.error(error)
       res.status(500).json({ message: "Server Error" })
     }
-  }
+}
   

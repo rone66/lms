@@ -2,6 +2,7 @@ import React from 'react'
 import ContactDetails from '../components/commons/contact/ContactDetails'
 import ContactForm from '../components/commons/contact/ContactForm'
 import Footer from '../components/commons/Footer';
+import ReviewSlider from '../components/commons/ReviewSlider';
 const Contact = () => {
   return (
     <div>
@@ -17,11 +18,12 @@ const Contact = () => {
         </div>
       </div> 
 
-      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
+      <div className="w-11/12 relative my-20 mx-auto max-w-maxContent flex-col items-center justify-between gap-8">
         <h1 className="text-center text-4xl font-semibold mt-8">
           Reviews from other learners
         </h1>
         {/* ReviewSlider */}
+        <ReviewSlider/>
       </div> 
 
       <Footer/>  

@@ -56,7 +56,7 @@ exports.passwordUpdated = (email, name) => {
     <body>
         <div class="container">
             <a href=""><img class="logo"
-                    src="https://halloffame.pwskills.com/images/PWSkills-white.png" alt="pwLms Logo"></a>
+                    src="https://res.cloudinary.com/dyfxcxiim/image/upload/v1695009965/pwLms/pw-with-white-back_fiwdh9.png" alt="pwLms Logo"></a>
             <div class="message">Password Update Confirmation</div>
             <div class="body">
                 <p>Hey ${name},</p>
