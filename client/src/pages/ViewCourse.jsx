@@ -10,7 +10,7 @@ const ViewCourse = () => {
     const [reviewModal,setReviewModal]=useState(false);
     const {courseId}=useParams();
     const {token}=useSelector((state)=>state.auth);
-    const dispatch=useDispatch()
+    const dispatch=useDispatch();
 
     useEffect(()=>{
         const setCourseSpecificDetails=async()=>{

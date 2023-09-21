@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa"
 import "swiper/css"
 import "swiper/css/free-mode"
 import "swiper/css/pagination"
-import { Autoplay,FreeMode,Navigation, Pagination}  from 'swiper/modules'
+import { Autoplay,FreeMode,Pagination}  from 'swiper/modules'
 import {ratingsEndpoints} from "../../services/api";
 import {apiConnector} from '../../services/apiConnector'
 const ReviewSlider = () => {

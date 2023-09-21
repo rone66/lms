@@ -94,7 +94,7 @@ function CourseDetails() {
   }
 
   const {
-    _id,
+    
     courseName,
     courseDescription,
     thumbnail,
@@ -109,11 +109,11 @@ function CourseDetails() {
 
   const course1=response?.data;
 
-  const {
-    thumbnail: ThumbnailImage,
-    price: CurrentPrice,
+  // const {
+  //   thumbnail: ThumbnailImage,
+  //   price: CurrentPrice,
     
-  } = course1
+  // } = course1
 
 
   console.log("thumbnail is-->",thumbnail);
